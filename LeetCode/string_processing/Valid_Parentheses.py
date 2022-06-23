@@ -38,3 +38,7 @@ def test_isValid():
     assert isValid("(()") is False
     assert isValid("({)}") is False
     assert isValid(")()(") is False
+
+
+if __name__ == "__main__":
+    test_isValid()
