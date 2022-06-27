@@ -1,2 +1,2 @@
 # CodingPractice
-This repo aims to help me improve my coding as well as problem solving skills.
+This repo aims to help me improve my coding and problem solving skills.
