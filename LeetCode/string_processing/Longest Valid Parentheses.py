@@ -1,38 +1,53 @@
+# def longestValidParentheses(s: str) -> int:
+#     stack = []
+#     for i in range(len(s)):
+#         if s[i] == '(' or not stack:
+#             stack.append(i)
+#         else:
+#             t = stack.pop()
+#             if s[t] == ')':
+#                 stack.append(t)
+#                 stack.append(i)
+#     right, longest = len(s), 0
+#     while stack:
+#         left = stack.pop()
+#         longest = max(longest, right - left - 1)
+#         right = left
+#     return max(longest, right)
+
 def longestValidParentheses(s: str) -> int:
-    maxes = [0]
+    pairing = [-1] * len(s)
+    stack = []
+    for i in range(len(s)):
+        if s[i] == '(':
+            stack.append(i)
+        elif stack:
+            left = stack.pop()
+            pairing[left] = i
+            pairing[i] = left
 
-    i = 0
-    while i < len(s):
-        c = s[i]
-
-        if c == '(':
-            left_unmatched = 0
-            head = i
-            for j in range(head, len(s)):
-                if s[j] == '(':
-                    left_unmatched += 1
-                else:
-                    left_unmatched -= 1
-
-                if left_unmatched == 0:
-                    maxes.append(j - head + 1)
-                    i = j
-                elif left_unmatched < 0:
-                    break
-
-        i += 1
+    maxes = []
+    valid_len = 0
+    for i in range(len(pairing)):
+        if pairing[i] >= 0:
+            valid_len += 1
+        else:
+            maxes.append(valid_len)
+            valid_len = 0
+    maxes.append(valid_len)
 
     return max(maxes)
 
 
+
 if __name__ == '__main__':
-    # print(longestValidParentheses("()()"))
-    # print(longestValidParentheses(")()())"))
-    # print(longestValidParentheses(""))
-    # print(longestValidParentheses(")()())()()("))
-    # print(longestValidParentheses(")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((("
-    #                               ")))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()("
-    #                               ")(())))((()))()))())"))
+    print(longestValidParentheses("()()"))
+    print(longestValidParentheses(")()())"))
+    print(longestValidParentheses(""))
+    print(longestValidParentheses(")()())()()("))
+    print(longestValidParentheses(")(()(()(((())(((((()()))((((()()(()()())())())()))()()()())(())()()(((()))))()((("
+                                  ")))(((())()((()()())((())))(())))())((()())()()((()((())))))((()(((((()((()))(()("
+                                  ")(())))((()))()))())"))
     print(longestValidParentheses("(())()(()(("))
     print(longestValidParentheses("(()(("))
     print(longestValidParentheses("((((((((((((((((((((((((((((()())))(())()())((((()())((())))((()))()())))()(()()("
