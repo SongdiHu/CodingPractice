@@ -1,0 +1,42 @@
+# For two strings s and t, we say "t divides s" if and only if s = t + ... + t (i.e., t is concatenated with itself one or more times).
+#
+# Given two strings str1 and str2, return the largest string x such that x divides both str1 and str2.
+
+
+def gcdOfStrings(str1: str, str2: str) -> str:
+    if str1 + str2 == str2 + str1:
+        if len(str1) < len(str2):
+            str1, str2 = str2, str1
+
+        pattern = str2
+        len_str1 = len(str1)
+        len_str2 = len(str2)
+
+        for i in range(len(pattern), 0, -1):
+            pattern = pattern[:i]
+            fac1 = len_str1/i
+            fac2 = len_str2/i
+            if fac1 == int(fac1) and fac2 == int(fac2):
+                if pattern * int(fac1) == str1 and pattern * int(fac2) == str2:
+                    return pattern
+    else:
+        return ""
+
+
+def test_gcdOfStrings():
+    assert gcdOfStrings("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    assert gcdOfStrings("ABABABAB", "ABAB") == "ABAB"
+    assert gcdOfStrings("LEET", "CODE") == ""
+    assert gcdOfStrings("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX") == "TAUXX"
+    assert gcdOfStrings("ABCABCABC", "ABCAAA") == ""
+
+
+# def test_divider_check():
+#     assert divider_check("ABABAB", "AB") == True
+#     assert divider_check("LEET", "CODE") == False
+#     assert divider_check("QWERQWER", "QWER") == True
+
+
+if __name__ == "__main__":
+    # test_divider_check()
+    test_gcdOfStrings()
