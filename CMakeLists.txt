@@ -1,0 +1,96 @@
+cmake_minimum_required(VERSION 3.27)
+project(CodingPractice)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(venv/lib/python3.10/site-packages/numpy/core/include)
+include_directories(venv/lib/python3.10/site-packages/numpy/core/include/numpy)
+include_directories(venv/lib/python3.10/site-packages/numpy/core/include/numpy/libdivide)
+include_directories(venv/lib/python3.10/site-packages/numpy/core/include/numpy/random)
+include_directories(venv/lib/python3.10/site-packages/numpy/f2py/src)
+
+add_executable(CodingPractice
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/libdivide/libdivide.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/random/bitgen.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/random/distributions.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/__multiarray_api.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/__ufunc_api.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/_neighborhood_iterator_imp.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/_numpyconfig.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/arrayscalars.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/experimental_dtype_api.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/halffloat.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/noprefix.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_3kcompat.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_common.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_cpu.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_endian.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_interrupt.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_math.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_no_deprecated_api.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/npy_os.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/numpyconfig.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/old_defines.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/oldnumeric.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/ufuncobject.h
+        venv/lib/python3.10/site-packages/numpy/core/include/numpy/utils.h
+        venv/lib/python3.10/site-packages/numpy/core/tests/data/generate_umath_validation_data.cpp
+        venv/lib/python3.10/site-packages/numpy/core/tests/examples/limited_api/limited_api.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_asimd.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_asimddp.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_asimdfhm.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_asimdhp.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx2.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_clx.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_cnl.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_icl.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_knl.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_knm.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512_skx.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512cd.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_avx512f.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_f16c.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_fma3.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_fma4.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_neon.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_neon_fp16.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_neon_vfpv4.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_popcnt.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_sse.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_sse2.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_sse3.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_sse41.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_sse42.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_ssse3.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vsx.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vsx2.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vsx3.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vsx4.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vx.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vxe.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_vxe2.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/cpu_xop.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/extra_avx512bw_mask.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/extra_avx512dq_mask.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/extra_avx512f_reduce.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/extra_vsx4_mma.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/extra_vsx_asm.c
+        venv/lib/python3.10/site-packages/numpy/distutils/checks/test_flags.c
+        venv/lib/python3.10/site-packages/numpy/distutils/mingw/gfortran_vs2003_hack.c
+        venv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.c
+        venv/lib/python3.10/site-packages/numpy/f2py/src/fortranobject.h
+        venv/lib/python3.10/site-packages/numpy/f2py/tests/src/array_from_pyobj/wrapmodule.c
+        LeetCode_cpp/array_n_string/main.cpp
+        "LeetCode_cpp/array_n_string/Remove_Element.h"
+        LeetCode_cpp/array_n_string/Merge_Sorted_Array.h
+        LeetCode_cpp/array_n_string/Remove_Duplicates.h
+        "LeetCode_cpp/array_n_string/Remove_Duplicates_from_Sorted_Array_II.h"
+        "LeetCode_cpp/array_n_string/Majority_Element .h"
+        "LeetCode_cpp/array_n_string/Best_Time_to_Buy_and_Sell_Stock .h"
+        LeetCode_cpp/array_n_string/Reverse_Words_in_a_String.h
+)
