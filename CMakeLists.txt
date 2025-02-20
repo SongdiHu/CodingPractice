@@ -93,4 +93,8 @@ add_executable(CodingPractice
         "LeetCode_cpp/array_n_string/Majority_Element .h"
         "LeetCode_cpp/array_n_string/Best_Time_to_Buy_and_Sell_Stock .h"
         LeetCode_cpp/array_n_string/Reverse_Words_in_a_String.h
+        LeetCode_cpp/array_n_string/Merge_Strings_Alt.h
+        LeetCode_cpp/array_n_string/Greatest_Common_Div.h
+        LeetCode_cpp/array_n_string/Kids_Greatest_Candies.h
+        LeetCode_cpp/array_n_string/Can_Place_Flowers.h
 )
